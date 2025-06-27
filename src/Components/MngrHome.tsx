@@ -4,8 +4,6 @@ import ladyPic from "../assets/lady.jpg"
 import { useEffect, useState } from "react"
 import { baseAPI } from "../API"
 import type { teamMember } from "@/types"
-import { Dialog } from "./ui/dialog"
-import { DialogTrigger } from "@radix-ui/react-dialog"
 import MemberInfo from "./MemberInfo"
 
 const MngrHome = () => {
