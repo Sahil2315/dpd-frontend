@@ -53,7 +53,6 @@ const MemberInfo = ({memInfo, manid}: {memInfo: teamMember, manid: number}) => {
                         }
                         <AddFeedback manid={manid} memInfo={memInfo} />
                     </div>
-                    
                 </DialogDescription>
             </DialogHeader>
         </DialogContent>

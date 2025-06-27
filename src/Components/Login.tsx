@@ -1,5 +1,5 @@
 import { baseAPI } from "../API"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { toast } from "sonner"
 import { useNavigate } from "react-router-dom"
 import { Toggle } from "./ui/toggle"
@@ -11,6 +11,17 @@ const Login = () => {
   const [uName, setUname] = useState<string>("")
   const [pWord, setPword] = useState<string>("")
   const [loading, toggleLoading] = useState<boolean>(false)
+  function autoFill(){
+    if(managerLogin){
+      setUname("brucdav")
+      setPword("password123")
+    }
+    else{
+      setUname("johndoe")
+      setPword("password123")
+    }
+  }
+  useEffect
   async function LoginSubmit() {
     if (uName && pWord){
       toggleLoading(true)
@@ -76,6 +87,7 @@ const Login = () => {
             <span className="mt-8 w-[80%] text-2xl">Password</span>
             <input value={pWord} onChange={(e) => setPword(e.target.value)} className="w-[80%] border-gray-400/40 border-2 rounded-lg text-xl py-1 px-2 mt-2" type="password" />
             <button className="mt-8 bg-indigo-700/50 px-4 py-1 rounded-lg text-lg hover:bg-indigo-700/70" onClick={LoginSubmit}>Login</button>
+            <button className="mt-8 bg-emerald-500/50 px-4 py-1 rounded-lg text-lg hover:bg-emerald-500/70" onClick={autoFill}>Auto Fill Login Details</button>
           </div>
         </div>
         <div className="px-8 flex-2 flex flex-col justify-center items-center">
@@ -83,7 +95,7 @@ const Login = () => {
             <span className="text-3xl">DPDZero Feedback System</span>
             <p className="w-[83%] mt-12 text-lg">This Feedback System serves as a dedicated internal platform that facilitates continuous feedback exchange between managers and their team members. Designed with simplicity, security, and approachability in mind, it empowers individuals at all levels to share insights, recognize strengths, and identify areas for improvement.</p>
             <p className="w-[83%] mt-8 text-lg">To see the working of this application, continue with the Login Process. For Convenience and Ease-Of-Use, there is an Autofill Feature for filling up the User Details Automatically.</p>
-            <p className="w-[83%] mt-8 text-lg">This Application is hosted using Vercel for the Frontend (ReactJS) part of the Application and using AWS EC2 for hosting the Backend (Python - FastAPI) part of the Application. The Docker files could be used to run the backend on any machine but then, the React App should also be locally hosted in order to work properly together. <br /> For that, There will be a React App specifically for Local Hosting (named frontend-local) in the GitHub Repo - <a href="https://github.com/Sahil2315/DPDZero-Task" target="_blank" className="px-2 py-1 rounded-lg bg-indigo-600/40 text-[16px] hover:bg-indigo-600/60" rel="noopener noreferrer">DPDZero Task</a> along with all the required instructions for hosting the frontend app.</p>
+            <p className="w-[83%] mt-8 text-lg">This Application is hosted using Vercel for the Frontend (ReactJS) part of the Application and using AWS EC2 for hosting the Backend (Python - FastAPI) part of the Application. The Docker files could be used to run the backend on any machine but then, the React App should also be locally hosted in order to work properly together. <br /> For that, There will be a React App specifically for Local Hosting  in the GitHub Repo - <a href="https://github.com/Sahil2315/dpd-frontend-local" target="_blank" className="px-2 py-1 rounded-lg bg-indigo-600/40 text-[16px] hover:bg-indigo-600/60" rel="noopener noreferrer">DPDZero Task</a> along with all the required instructions for hosting the frontend app.</p>
           </div>
         </div>
       </div>
