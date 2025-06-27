@@ -1,1 +1,1 @@
-export const baseAPI: string = "http://localhost:8000"
+export const baseAPI: string = "https://dpd-back.sahilnigam.online"
